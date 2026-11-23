@@ -1,0 +1,51 @@
+.cabecera {
+  background: var(--primario-oscuro);
+  color: #fff;
+  padding: 2.25rem 0 2rem;
+}
+
+.sobretitulo {
+  margin: 0 0 0.35rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+h1 {
+  margin: 0;
+  font-family: var(--fuente-titulos);
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.distribucion {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+  padding-top: 1.75rem;
+  padding-bottom: 3rem;
+}
+
+aside {
+  position: sticky;
+  top: 1.5rem;
+}
+
+.columna {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 0;
+}
+
+@media (max-width: 860px) {
+  .distribucion {
+    grid-template-columns: 1fr;
+  }
+
+  aside {
+    position: static;
+  }
+}

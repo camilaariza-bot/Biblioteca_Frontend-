@@ -1,0 +1,18 @@
+<header class="cabecera">
+  <div class="contenido">
+    <p class="sobretitulo">Red de bibliotecas</p>
+    <h1>Gestión de sedes y libros</h1>
+  </div>
+</header>
+
+<main class="contenido distribucion">
+  <!-- Funcionalidad 1 · Inserción: registrar bibliotecas -->
+  <aside>
+    <app-biblioteca-form (bibliotecaRegistrada)="cargarBibliotecas()" />
+  </aside>
+
+  <!-- Funcionalidad 2 · Consulta: libros con su biblioteca (datos de GET /bibliotecas) -->
+  <div class="columna">
+    <app-libros-tabla [bibliotecas]="bibliotecas" [cargando]="cargando" [error]="error" />
+  </div>
+</main>

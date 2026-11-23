@@ -1,0 +1,44 @@
+/* Estilos globales */
+:root {
+  --fondo: #f6f3ec;
+  --tarjeta: #ffffff;
+  --texto: #22281f;
+  --texto-suave: #6b6f64;
+  --borde: #e4dfd3;
+  --primario: #2f6b4f;
+  --primario-oscuro: #1f4a37;
+  --primario-suave: #dcebe2;
+  --rojo: #b3382a;
+  --fuente-titulos: Georgia, 'Times New Roman', serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.45;
+}
+
+.contenido {
+  width: min(1120px, 100% - 2.5rem);
+  margin-inline: auto;
+}
+
+.tarjeta {
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.tarjeta h2 {
+  margin: 0 0 0.25rem;
+  font-family: var(--fuente-titulos);
+  font-weight: 600;
+  font-size: 1.3rem;
+}

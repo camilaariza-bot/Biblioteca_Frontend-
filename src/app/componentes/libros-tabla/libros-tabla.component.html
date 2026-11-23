@@ -1,0 +1,39 @@
+<section class="tarjeta">
+  <div class="encabezado">
+    <h2>Libros por biblioteca</h2>
+    @if (!cargando && !error) {
+      <span class="contador">{{ filas.length }} libros</span>
+    }
+  </div>
+
+  @if (cargando) {
+    <p class="estado">Cargando libros…</p>
+  } @else if (error) {
+    <p class="estado fallo">{{ error }}</p>
+  } @else if (filas.length === 0) {
+    <p class="estado">No hay libros registrados.</p>
+  } @else {
+    <div class="contenedor-tabla">
+      <table>
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th>Autor</th>
+            <th class="num">Año</th>
+            <th>Biblioteca</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (fila of filas; track fila.id) {
+            <tr>
+              <td class="titulo">{{ fila.titulo }}</td>
+              <td>{{ fila.autor }}</td>
+              <td class="num">{{ fila.anioPublicacion }}</td>
+              <td><span class="etiqueta">{{ fila.biblioteca }}</span></td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</section>

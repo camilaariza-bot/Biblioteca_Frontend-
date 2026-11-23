@@ -1,0 +1,56 @@
+<section class="tarjeta">
+  <h2>Registrar biblioteca</h2>
+  <p class="ayuda">Completa los datos de la nueva sede.</p>
+
+  <form [formGroup]="form" (ngSubmit)="registrar()" novalidate>
+    <div class="campo">
+      <label for="nombre">Nombre</label>
+      <input id="nombre" type="text" formControlName="nombre"
+             placeholder="Ej. Biblioteca Occidente"
+             [class.invalido]="campoInvalido('nombre')">
+      @if (campoInvalido('nombre')) {
+        <small class="error">
+          @if (form.controls.nombre.hasError('maxlength')) { Máximo 100 caracteres. }
+          @else { El nombre es obligatorio. }
+        </small>
+      }
+    </div>
+
+    <div class="campo">
+      <label for="direccion">Dirección</label>
+      <input id="direccion" type="text" formControlName="direccion"
+             placeholder="Ej. Calle 13 # 68-20"
+             [class.invalido]="campoInvalido('direccion')">
+      @if (campoInvalido('direccion')) {
+        <small class="error">
+          @if (form.controls.direccion.hasError('maxlength')) { Máximo 150 caracteres. }
+          @else { La dirección es obligatoria. }
+        </small>
+      }
+    </div>
+
+    <div class="campo">
+      <label for="ciudad">Ciudad</label>
+      <input id="ciudad" type="text" formControlName="ciudad"
+             placeholder="Ej. Bogotá"
+             [class.invalido]="campoInvalido('ciudad')">
+      @if (campoInvalido('ciudad')) {
+        <small class="error">
+          @if (form.controls.ciudad.hasError('maxlength')) { Máximo 80 caracteres. }
+          @else { La ciudad es obligatoria. }
+        </small>
+      }
+    </div>
+
+    <button type="submit" [disabled]="guardando">
+      {{ guardando ? 'Guardando…' : 'Registrar biblioteca' }}
+    </button>
+  </form>
+
+  @if (mensajeExito) {
+    <p class="alerta exito" role="status">{{ mensajeExito }}</p>
+  }
+  @if (mensajeError) {
+    <p class="alerta fallo" role="alert">{{ mensajeError }}</p>
+  }
+</section>
